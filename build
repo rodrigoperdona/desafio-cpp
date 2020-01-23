@@ -9,8 +9,19 @@ function configure
   [ -d ".build" ] && cd $1 && cmake ..
 }
 
-configure .build
-make && make install
-cd ..
-strip -S --strip-unneeded --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag output/Client
-strip -S --strip-unneeded --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag output/Server
+if [ "$1" == "--docker-build" ]; then
+  docker build -t focalle-environment:build .
+elif [ "$1" == "--docker-run" ]; then
+  docker run -itd --rm -v ${PWD}:/focalle --name=focalle-build focalle-environment:build
+elif [ "$1" == "--docker-stop" ]; then
+  docker rm -f focalle-build
+elif [ "$1" == "--build" ]; then
+  configure .build
+  make && make install
+  cd ..
+  strip -S --strip-unneeded --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag output/client/Client
+  strip -S --strip-unneeded --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag output/server/Server
+elif [ "$1" == "" ]; then
+  docker exec -it focalle-build /bin/bash -c "/focalle/build --build"
+fi
+
