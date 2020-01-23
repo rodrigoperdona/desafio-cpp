@@ -1,0 +1,21 @@
+- Blibliotecas utilizadas conforme proposto pelo desafio, montadas dentro do ambiente Docker.
+  - Debian 9
+  - Poco 1.9.0
+  - zmqpp master
+  - zmq 4.2.1 
+  - cmake 3.7.2 ( mas funciona com qualquer versão acima de 3.0 )
+  - C++11
+  - Docker 18.09.7
+- Tempo gasto
+  - Cerca de 10 horas.
+- Desafios:
+  - Nunca havia antes trabalhado com ZeroMQ.
+  - Nunca havia antes trabalhado com Poco.
+  - Estudar as duas bibliotecas e ler o minimo do manual para fazer um programa que se adeque as especificações do desafio levou algum tempo.
+- Para executar o build deve ser seguidos os passos:
+  ./build --docker-build
+  ./build --docker-run
+  ./build
+- Caso seja necessário parar o container para rodar o build novamente, executar:
+  ./build --docker-stop
+- Essa forma de build garante que o ambiente seja o mesmo para todos e que não haja perca de tempo setando um novo ambiente para cada funcionário baixando o repositório. Os testes podem ser realizados dentro do container do docker caso queira.
