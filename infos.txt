@@ -1,0 +1,18 @@
+Bibliotecas e versões utilizadas:
+	Cmake 3.7.2
+	GNU Make 4.1
+	C++11
+	Poco 1.9.0
+	Debian 9.5.0
+	ZeroMQ 4.3.2
+	zmqpp Branch master
+Tempo:
+	Levei entre 8 e 9 horas para concluir tudo o que engloba:
+	Instalação do SO Debian 9, todas bibliotecas, sendo este dois os que mais tomaram tempo.
+	O tempo de desenvolvimento do client e do server foi relativamente curto, umas 4h para 
+	escrever compilar e testar o código.
+
+Dificuldades:
+	Minha maior dificuldade foi perante a compilação dos códigos. Como possuo pouca experiência utilizando Makefiles e CMakeLists levei muito tempo para conseguir compilar e rodar meus códigos. 
+	Os códigos em si levei pouco tempo escrevendo. As bibliotecas ZeroMQ e zmqpp possuem vbons exemplos de base e uma boa documentação para fazer esse tipo de aplicação, a biblioteca Poco foi um pouco mais difícil, pois a documentação não possui uma interface intuitiva e para encontrar informações levou mais tempo.
+
